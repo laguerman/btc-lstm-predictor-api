@@ -1,0 +1,26 @@
+# Entornos virtuales
+.venv/
+.venv310/
+env/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos generados por editores
+.vscode/
+.idea/
+
+# Archivos de datos grandes o temporales
+# (Opcional, si no quieres subir los CSVs y NPys al repo)
+# /data/*.csv
+# /data/*.npy
+# /data/*.pkl
+
+# Carpetas de resultados
+/results/
+
+# Archivo de payload temporal
+payload.json
