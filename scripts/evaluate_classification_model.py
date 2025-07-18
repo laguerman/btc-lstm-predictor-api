@@ -1,10 +1,9 @@
-# scripts/evaluate_classification_model.py
-
 import numpy as np
 from tensorflow.keras.models import load_model
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 # Cargar el modelo y los datos de prueba
 print("Cargando modelo y datos de clasificación para evaluación...")
@@ -35,4 +34,10 @@ sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
 plt.xlabel('Predicción del Modelo')
 plt.ylabel('Valor Real')
 plt.title('Matriz de Confusión')
+
+# Guardamos el gráfico de la matriz de confusión
+os.makedirs('results', exist_ok=True)
+plt.savefig('results/confusion_matrix.png')
+print("\n✅ Matriz de confusión guardada en 'results/confusion_matrix.png'.")
+
 plt.show()

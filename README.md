@@ -45,8 +45,10 @@ Tras varias iteraciones de modelado (predicción de precios, retornos logarítmi
 El modelo final de clasificación alcanzó una **precisión (accuracy) de aproximadamente el 50%**, similar a un resultado aleatorio.
 
 **Matriz de Confusión del Modelo Final:**
-![Matriz de Confusión](https://github.com/laguerman/btc-lstm-predictor-api/blob/main/results/prediction_classification_model.png?raw=true)
-*(Nota: Necesitarás subir la imagen de la matriz a la carpeta `results` en GitHub para que esto funcione).*
+![Matriz de Confusión](results/confusion_matrix.png)
+
+**Gráfico de Predicción vs. Precio Real (Modelo V2):**
+![Gráfico de Predicción](results/prediction_model_v2.png)
 
 Este resultado valida empíricamente la Hipótesis del Mercado Eficiente (forma débil) y demuestra la necesidad de incorporar fuentes de datos alternativas (ej. on-chain, sentimiento) para obtener una ventaja predictiva real.
 
