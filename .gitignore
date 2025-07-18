@@ -18,9 +18,9 @@ __pycache__/
 # /data/*.csv
 # /data/*.npy
 # /data/*.pkl
-
+    
 # Carpetas de resultados
-/results/
+    
 
 # Archivo de payload temporal
 payload.json
