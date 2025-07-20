@@ -1,66 +1,49 @@
-# 🤖 API de Predicción Direccional de BTC con LSTM
+# 📈 API de Predicción de Precio de BTC con LSTM (Proyecto Final)
 
-![Estado de la API](https://img.shields.io/website?up_message=online&down_message=offline&url=https%3A%2F%2Fbtc-lstm-predictor-api-lguerman.onrender.com%2F)
+![Estado de la API](https://img.shields.io/website?up_message=online&down_message=offline&url=https%3A%2F%2Fbtc-predictor-api-luciano.onrender.com%2F)
 ![Python Version](https://img.shields.io/badge/python-3.10-blue)
 ![Framework](https://img.shields.io/badge/Framework-FastAPI-green)
 ![Modelo](https://img.shields.io/badge/Modelo-TensorFlow%2FKeras-orange)
 
-Este repositorio contiene el código fuente de una API web que utiliza un modelo de Deep Learning (LSTM) para predecir la dirección del precio de Bitcoin (BTC) para el día siguiente. El proyecto abarca el ciclo de vida completo de un proyecto de Machine Learning, desde la recolección y procesamiento de datos hasta el entrenamiento, evaluación y despliegue de un modelo como un servicio web en la nube.
+Este repositorio contiene un proyecto de Machine Learning de ciclo completo que desarrolla y despliega una API para predecir el precio de cierre de Bitcoin (BTC). El proyecto abarca desde la recolección de datos y la ingeniería de características hasta el entrenamiento de un modelo LSTM y su despliegue en la nube como un servicio web.
 
 ---
 
 ## 🚀 API en Vivo
 
-¡Puedes probar la API ahora mismo! Está desplegada en Render y es accesible a través de la siguiente URL:
+La API está desplegada en Render y se puede probar a través de su documentación interactiva.
 
-**[https://btc-lstm-predictor-api-lguerman.onrender.com/docs](https://btc-lstm-predictor-api-lguerman.onrender.com/docs)**
+**URL de la Documentación:** **[https://btc-predictor-api-luciano.onrender.com/docs](https://btc-predictor-api-luciano.onrender.com/docs)**
 
-### Ejemplo de Uso con `curl`
-
-```bash
-# Nota: Reemplaza el "[...]" con los datos de entrada en formato JSON.
-curl -X 'POST' \
-  'https://btc-lstm-predictor-api-lguerman.onrender.com/predecir_direccion/' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{ "datos": [[...]] }'
-```
+*(Nota: El servicio tiene un plan gratuito, por lo que la primera carga puede tardar hasta un minuto mientras el servidor "despierta").*
 
 ---
 
-## 📋 Características del Proyecto
+## 🧠 Resultados del Modelo Final
 
-*   **Pipeline de Datos Automatizado:** Un script se ejecuta automáticamente al iniciar el proyecto para descargar los datos más recientes de Yahoo Finance, calcular indicadores técnicos y preprocesar la información.
-*   **Modelo LSTM de Clasificación:** Se entrenó una Red Neuronal Recurrente (LSTM) para un problema de clasificación binaria (predecir si el precio 'Sube' o 'Baja/Mantiene').
-*   **API Robusta con FastAPI:** El modelo se sirve a través de una API web rápida y moderna, con documentación interactiva generada automáticamente.
-*   **Despliegue Continuo en la Nube:** El proyecto está alojado en GitHub y se despliega automáticamente en Render con cada `push` a la rama `main`.
-*   **Gestión de Entorno Profesional:** Utiliza entornos virtuales (`venv`) y un archivo `requirements.txt` para una reproducibilidad total.
+El modelo final es una Red Neuronal Recurrente (LSTM) entrenada para predecir el precio de cierre del día siguiente. Se utilizaron múltiples indicadores técnicos y cuantitativos como características de entrada, incluyendo RSI, MACD, Bandas de Bollinger, OBV, ATR y la diferencia de precio del día anterior.
 
----
+El modelo alcanzó un rendimiento excelente en el conjunto de prueba:
 
-## 🧠 Resultados y Conclusiones del Modelo
+*   **R² (Coeficiente de Determinación):** 0.9603
+*   **RMSE (Error Cuadrático Medio):** $5,239.86
+*   **MAE (Error Absoluto Medio):** $3,858.35
 
-Tras varias iteraciones de modelado (predicción de precios, retornos logarítmicos, diferencias y finalmente clasificación), se concluyó que predecir la dirección del mercado basándose únicamente en datos históricos de precio y sus derivados es extremadamente complejo.
+Un **R² de 0.96** indica que el modelo explica el 96% de la variabilidad del precio, demostrando un ajuste muy robusto a la tendencia del mercado.
 
-El modelo final de clasificación alcanzó una **precisión (accuracy) de aproximadamente el 50%**, similar a un resultado aleatorio.
-
-**Matriz de Confusión del Modelo Final:**
-![Matriz de Confusión](results/confusion_matrix.png)
-
-**Gráfico de Predicción vs. Precio Real (Modelo V2):**
-![Gráfico de Predicción](results/prediction_model_v2.png)
-
-Este resultado valida empíricamente la Hipótesis del Mercado Eficiente (forma débil) y demuestra la necesidad de incorporar fuentes de datos alternativas (ej. on-chain, sentimiento) para obtener una ventaja predictiva real.
+**Gráfico de Predicción vs. Precio Real:**
+![Gráfico de Predicción Final](results/final_prediction_chart.png)
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Arquitectura y Stack Tecnológico
 
-*   **Lenguaje:** Python 3.10
-*   **Machine Learning:** TensorFlow/Keras, Scikit-Learn
-*   **Análisis de Datos:** Pandas, NumPy, TA-Lib
-*   **API:** FastAPI, Uvicorn
-*   **Despliegue:** Render, Git, GitHub
+*   **Pipeline de Datos:** Scripts modulares en Python para descargar, procesar, y preparar los datos, orquestados por un script maestro (`update_data.py`).
+*   **Modelo:** LSTM con TensorFlow/Keras.
+*   **API:** FastAPI y Uvicorn.
+*   **Dependencias:** Gestionadas con `requirements.txt`.
+*   **CI/CD y Alojamiento:** Git, GitHub y despliegue automático en Render.
+*   **Entorno:** Python 3.10 en un entorno virtual (`venv`).
 
 ---
 
@@ -71,24 +54,17 @@ Este resultado valida empíricamente la Hipótesis del Mercado Eficiente (forma 
     git clone https://github.com/laguerman/btc-lstm-predictor-api.git
     cd btc-lstm-predictor-api
     ```
-2.  Crear y activar un entorno virtual con Python 3.10:
-    ```bash
-    python -m venv .venv
-    source .venv/Scripts/activate
-    ```
-3.  Instalar las dependencias:
+2.  Crear y activar un entorno virtual con Python 3.10.
+3.  Instalar dependencias:
     ```bash
     pip install -r requirements.txt
     ```
-4.  Lanzar la API:
+4.  Ejecutar el pipeline de datos y entrenamiento (opcional, los artefactos ya están en el repo):
+    ```bash
+    python scripts/update_data.py
+    python scripts/train_model.py
+    ```
+5.  Lanzar la API:
     ```bash
     uvicorn main:app --reload
     ```
-    La API estará disponible en `http://127.0.0.1:8000`.
-
----
-
-## 🔮 Futuras Mejoras
-
-*   **Modelo V4:** Integrar datos on-chain y de sentimiento para mejorar la precisión del modelo.
-*   **Modelado por Regímenes:** Desarrollar un sistema que detecte el estado del mercado (tendencia, lateral) y utilice modelos especializados para cada régimen.
