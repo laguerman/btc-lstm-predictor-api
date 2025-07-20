@@ -1,35 +1,25 @@
-from datetime import datetime, timedelta
+# scripts/download_data.py
+
 import yfinance as yf
+import pandas as pd
+from datetime import datetime
 import os
 
-def descargar_datos_btc(start='2015-01-01', carpeta_destino='data'):
-    """
-    Descarga los datos históricos de BTC/USD desde Yahoo Finance
-    y los guarda como archivo CSV en la carpeta especificada.
-    Se ajusta automáticamente a la última fecha disponible.
-    """
-
-    # Usar hoy como fecha tentativa de fin
-    today = datetime.today()
-    tentative_end = today.strftime('%Y-%m-%d')
-
-    print(f"Descargando datos desde {start} hasta {tentative_end} (fecha tentativa)...")
-
-    # Descargar datos
-    btc_data = yf.download('BTC-USD', start=start, end=tentative_end)
-
-    # Si no hay datos en el último día, recortar la última fecha válida
-    last_date = btc_data.index[-1].strftime('%Y-%m-%d')
-    print(f"Última fecha disponible en los datos: {last_date}")
-
-    # Guardar archivo
-    os.makedirs(carpeta_destino, exist_ok=True)
-    archivo_salida = os.path.join(carpeta_destino, 'btc_raw.csv')
-    btc_data.to_csv(archivo_salida)
-    print(f"Datos guardados en: {archivo_salida}")
+def descargar_datos(ticker='BTC-USD', start='2015-01-01', carpeta_salida='data'):
+    """Descarga datos históricos y los guarda en un CSV."""
+    end = datetime.today().strftime('%Y-%m-%d')
+    print(f"Descargando datos para {ticker} desde {start} hasta {end}...")
+    
+    try:
+        btc_data = yf.download(ticker, start=start, end=end)
+        
+        os.makedirs(carpeta_salida, exist_ok=True)
+        ruta_salida = os.path.join(carpeta_salida, 'btc_raw.csv')
+        btc_data.to_csv(ruta_salida)
+        
+        print(f"Datos guardados exitosamente en: {ruta_salida}")
+    except Exception as e:
+        print(f"❌ Error al descargar los datos: {e}")
 
 if __name__ == "__main__":
-    descargar_datos_btc()
-# Nota: YFinance no proporciona datos en tiempo real.
-# Generalmente, los datos están disponibles hasta 1 o 2 días antes de la fecha actual.
-# Este script ajusta la descarga automáticamente para obtener los datos más recientes disponibles.
+    descargar_datos()
