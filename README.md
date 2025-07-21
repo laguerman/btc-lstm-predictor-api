@@ -13,7 +13,7 @@ Este repositorio contiene un proyecto de Machine Learning de ciclo completo que 
 
 La API está desplegada en Render y se puede probar a través de su documentación interactiva.
 
-**URL de la Documentación:** **[https://btc-predictor-api-luciano.onrender.com/docs](https://btc-predictor-api-luciano.onrender.com/docs)**
+**URL de la Documentación:** **[https://btc-lstm-predictor-api-lguerman.onrender.com](https://btc-lstm-predictor-api-lguerman.onrender.com/docs)**
 
 *(Nota: El servicio tiene un plan gratuito, por lo que la primera carga puede tardar hasta un minuto mientras el servidor "despierta").*
 
@@ -25,9 +25,9 @@ El modelo final es una Red Neuronal Recurrente (LSTM) entrenada para predecir el
 
 El modelo alcanzó un rendimiento excelente en el conjunto de prueba:
 
-*   **R² (Coeficiente de Determinación):** 0.9603
-*   **RMSE (Error Cuadrático Medio):** $5,239.86
-*   **MAE (Error Absoluto Medio):** $3,858.35
+*   **R² (Coeficiente de Determinación):** 0.9732
+*   **RMSE (Error Cuadrático Medio):** $4,310.89
+*   **MAE (Error Absoluto Medio):** $2,957.57
 
 Un **R² de 0.96** indica que el modelo explica el 96% de la variabilidad del precio, demostrando un ajuste muy robusto a la tendencia del mercado.
 

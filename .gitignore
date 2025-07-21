@@ -1,4 +1,4 @@
-# Entornos virtuales
+# Entornos virtuales -
 .venv/
 .venv310/
 env/
@@ -9,17 +9,19 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Archivos generados por editores
-.vscode/
+# Archivos generados por editores (excepto configuraciones útiles)
 .idea/
+# Dejamos que .vscode/ se suba para guardar tasks.json
+# Si no quieres subirlo, puedes añadir de nuevo la línea:
+# .vscode/
 
-# Archivos de datos grandes o temporales
-# (Opcional, si no quieres subir los CSVs y NPys al repo)
-# /data/*.csv
-# /data/*.npy
-# /data/*.pkl
-    
-# Carpetas de resultados
-    
-# Archivo de payload temporal
+# Archivos temporales generados
 payload.json
+generate_payload.py
+
+# Archivos de datos crudos (opcional, pero buena práctica no subirlos)
+# data/btc_raw.csv
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
