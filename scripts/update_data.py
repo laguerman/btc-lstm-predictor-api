@@ -1,5 +1,3 @@
-# scripts/update_data.py
-
 import sys
 import subprocess
 import os

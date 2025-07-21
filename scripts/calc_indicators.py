@@ -1,5 +1,3 @@
-# scripts/calc_indicators.py
-
 import pandas as pd
 import pandas_ta as ta
 import os
