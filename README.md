@@ -13,7 +13,7 @@ Este repositorio contiene un proyecto de Machine Learning de ciclo completo que 
 
 La API está desplegada en Render y se puede probar a través de su documentación interactiva.
 
-**URL de la Documentación:** **[https://btc-lstm-predictor-api-lguerman.onrender.com](https://btc-lstm-predictor-api-lguerman.onrender.com/docs)**
+**URL de la Documentación:** **[https://btc-lstm-predictor-api-laguerman.onrender.com/docs](https://btc-lstm-predictor-api-laguerman.onrender.com/docs)**
 
 *(Nota: El servicio tiene un plan gratuito, por lo que la primera carga puede tardar hasta un minuto mientras el servidor "despierta").*
 
@@ -29,7 +29,7 @@ El modelo alcanzó un rendimiento excelente en el conjunto de prueba:
 *   **RMSE (Error Cuadrático Medio):** $4,168.84
 *   **MAE (Error Absoluto Medio):** $3,225.77
 
-Un **R² de 0.96** indica que el modelo explica el 96% de la variabilidad del precio, demostrando un ajuste muy robusto a la tendencia del mercado.
+Un **R² de 0.97** indica que el modelo explica el 97% de la variabilidad del precio, demostrando un ajuste muy robusto a la tendencia del mercado.
 
 **Gráfico de Predicción vs. Precio Real:**
 ![Gráfico de Predicción Final](results/final_prediction_chart.png)

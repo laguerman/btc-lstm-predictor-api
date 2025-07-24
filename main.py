@@ -32,7 +32,7 @@ except Exception as e:
 app = FastAPI(
     title="📈 API de Predicción de Precio de BTC (Modelo V2)",
     description="""
-    API que utiliza un modelo LSTM V2 (R² de 0.99) para predecir el precio
+    API que utiliza un modelo LSTM V2 (R² de 0.97) para predecir el precio
     de cierre de Bitcoin para el día siguiente. Un proyecto de laguerman y Study.
     """,
     version="2.0.0"
