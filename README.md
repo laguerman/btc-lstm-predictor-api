@@ -25,9 +25,9 @@ El modelo final es una Red Neuronal Recurrente (LSTM) entrenada para predecir el
 
 El modelo alcanzó un rendimiento excelente en el conjunto de prueba:
 
-*   **R² (Coeficiente de Determinación):** 0.9732
-*   **RMSE (Error Cuadrático Medio):** $4,310.89
-*   **MAE (Error Absoluto Medio):** $2,957.57
+*   **R² (Coeficiente de Determinación):** 0.9752
+*   **RMSE (Error Cuadrático Medio):** $4,168.84
+*   **MAE (Error Absoluto Medio):** $3,225.77
 
 Un **R² de 0.96** indica que el modelo explica el 96% de la variabilidad del precio, demostrando un ajuste muy robusto a la tendencia del mercado.
 
